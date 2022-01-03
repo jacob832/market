@@ -5,15 +5,13 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Intervention\Image\Facades\Image;
-
+use App\Http\Resources\UserResource;
 class ProfilesController extends Controller
 {
     //
     public function index(User $user)
     {
-    	return view('profiles.index',[
-    		'user'=>$user,
-    	]);
+    	return response([ 'User' => new UserResource($user), 'message' => 'Retrieved successfully'], 200);
     }
     public function update(User $user)
     {
