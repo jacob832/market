@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\User;
 use App\Http\Resources\PRODUCTResource;
+use App\Events\ProductViewer;
 class ProductController extends Controller
 {
     
@@ -54,6 +55,7 @@ class ProductController extends Controller
     //route model pinding
     public function show(Product $product)
     {
+      event(new ProductViewer($product));
       return response([ 'Product' => new PRODUCTResource($product), 'message' => 'Retrieved successfully'], 200);
     } 
 

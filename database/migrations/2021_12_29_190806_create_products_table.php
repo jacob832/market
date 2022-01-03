@@ -30,6 +30,7 @@ class CreateProductsTable extends Migration
             $table->double('secondOfferPrice');
             $table->double('thirdOfferPrice');
             $table->double('priceAfterDiscount')->default(1);
+            $table->integer('views')->default(0); 
             $table->timestamps();
         });
     }
