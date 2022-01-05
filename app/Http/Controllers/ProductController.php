@@ -77,7 +77,7 @@ class ProductController extends Controller
         'thirdOfferPrice' => ['required','numeric','between:0,1'],
       ]);
       $product->update($data);
-      return $product;
+      return ['product'=>$product];
     }
     
     public function destroy(Product $product)

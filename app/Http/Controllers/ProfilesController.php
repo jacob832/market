@@ -11,7 +11,7 @@ class ProfilesController extends Controller
     //
     public function index(User $user)
     {
-    	return response([ 'User' => new UserResource($user), 'message' => 'Retrieved successfully'], 200);
+    	return ['profile'=>$user->profile];
     }
     public function update(User $user)
     {
@@ -36,6 +36,6 @@ class ProfilesController extends Controller
     		$imageArray ?? []
         ));
 
-    	return redirect("/profile/{$user->id}");
+    	return ['profile'=>$user->profile];
     }
 }
