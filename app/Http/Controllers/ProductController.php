@@ -20,7 +20,7 @@ class ProductController extends Controller
     {
         $data = request()->validate([
             'name'=>'required',
-            'image'=>'required',
+            'image'=>['required','image'],
             'expireDate'=>'date',
             'phoneNumber'=>'required',
             'category'=>'required',
@@ -33,7 +33,7 @@ class ProductController extends Controller
             'secondOfferPrice' => ['required','numeric','between:0,1'],
             'thirdOfferPrice' => ['required','numeric','between:0,1'],
         ]);
-       // $imagePath = request('image')->store('uploads','public');
+       $imagePath = request('image')->store('uploads','public');
         auth()->user()->products()->create([
             'name' => $data['name'],
             'image' => $data['image'],
