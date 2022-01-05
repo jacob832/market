@@ -11,8 +11,9 @@ class ProfilesController extends Controller
     //
     public function index(User $user)
     {
-    	return ['profile'=>$user->profile];
+    	return ['user' => $user,'profile'=> $user->profile];
     }
+
     public function update(User $user)
     {
     	$this->authorize('update',$user->profile);
