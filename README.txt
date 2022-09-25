@@ -8,4 +8,4 @@ EX:($user->profile->title). Route /profile/user.
 Product Fields names:
 name,image,expireDate,phoneNumber,category,quantity(int),price(double).
 Everything Is Required.
-أحلى طيلوني
+
